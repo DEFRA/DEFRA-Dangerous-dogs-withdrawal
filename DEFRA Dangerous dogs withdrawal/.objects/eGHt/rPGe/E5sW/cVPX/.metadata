@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Withdraw dog(1)",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "cVPXyfHANU-MwK8uzlr8qA",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/cVPXyfHANU-MwK8uzlr8qA",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg",
+  "Created": "2026-08-03T10:11:14.378545Z",
+  "Updated": "2026-08-03T10:11:14.378545Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

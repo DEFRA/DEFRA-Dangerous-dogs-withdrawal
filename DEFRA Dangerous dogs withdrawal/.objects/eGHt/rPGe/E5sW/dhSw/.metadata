@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Suggestions",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "dhSwZAbf5kmspw83He6MnQ",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/dhSwZAbf5kmspw83He6MnQ",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg",
+  "Created": "2026-07-30T07:08:19.039157Z",
+  "Updated": "2026-07-30T07:08:19.039157Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="7i_nYNpoGki-zRa1c3uawQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="3e4159bf-5819-444f-bbf1-5e8e7d6ac6a9" CvTextArea="1041, 1020, 685, 31" CvType="AnyWordGroup" DesignTimeRectangle="1045, 1015, 1102, 43" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='govuk-body govuk-!-margin-top-2' aaname='Your search for  did not match any records.' /&gt;" Guid="d8f2fa0f-5d58-4522-a92c-e736f529efb8" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search - Dangerous Dogs Index' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="3e4159bf-5819-444f-bbf1-5e8e7d6ac6a9" CvTextArea="1041, 1098, 196, 38" CvTextArgument="Suggestions:" CvType="Text" DesignTimeRectangle="1045, 1093, 1102, 44" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='govuk-body' tag='P' type='' aaname='Suggestions:' check:innerText='Suggestions:' /&gt;" Guid="e6b9b3e1-7862-4196-b465-b3ea6ba4bd29" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="b185aa99f67138ea7020f913919f962f.png" xmlns="">030sgTzelR0-cRAOB4V84Jg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

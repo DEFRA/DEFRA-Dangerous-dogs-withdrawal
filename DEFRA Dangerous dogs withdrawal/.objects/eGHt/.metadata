@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Edge Dangerous Dogs Index",
+  "Type": "App",
+  "Id": "eGHtAAJZAkehncDo3q61gw",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/eGHtAAJZAkehncDo3q61gw",
+  "Created": "2026-07-29T09:03:09.0848268Z",
+  "Updated": "2026-07-29T09:03:09.0848268Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

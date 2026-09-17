@@ -1,0 +1,14 @@
+﻿{
+  "Name": "ED17086",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "sx5Jl1TWZ0am01QG5zqFCA",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/sx5Jl1TWZ0am01QG5zqFCA",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg",
+  "Created": "2026-07-29T09:27:34.2295919Z",
+  "Updated": "2026-07-29T09:27:34.2295919Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

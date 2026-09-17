@@ -1,0 +1,130 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&",
+        "g_Config&",
+        "g_swProcessingTimer&",
+        "g_intExitPoint&",
+        "g_BearerToken&",
+        "g_TransactionItem&"
+      ],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_Config&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_swProcessingTimer&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_intExitPoint&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_BearerToken&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_TransactionItem&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "SystemException&StateMachine_1",
+        "BusinessException&StateMachine_1",
+        "TransactionNumber&StateMachine_1",
+        "RetryNumber&StateMachine_1",
+        "ConsecutiveSystemExceptions&StateMachine_1",
+        "boolRunProcess&StateMachine_1",
+        "Credentials&StateMachine_1",
+        "strWorkLogFilepath&StateMachine_1",
+        "boolContinue&StateMachine_1",
+        "boolLastTransaction&StateMachine_1",
+        "boolSkipEndConfirmation&StateMachine_1",
+        "strProcessType&StateMachine_1",
+        "intConSysEx&StateMachine_1",
+        "strUserFolder&Sequence_38",
+        "listConfigFilepaths&Sequence_40",
+        "arrFilePath&Sequence_40",
+        "strFullFilepath&Sequence_41",
+        "boolFolderExists&Sequence_42",
+        "boolShouldStop&Sequence_25",
+        "dateCaseStartTime&State_3",
+        "strCaseIDText&Sequence_28"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_boolUnattended"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/GetTransactionData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&69bf5cdb-4589-4425-be5a-8be3982e0a5a",
+        "g_Config&69bf5cdb-4589-4425-be5a-8be3982e0a5a",
+        "g_swProcessingTimer&69bf5cdb-4589-4425-be5a-8be3982e0a5a",
+        "g_intExitPoint&69bf5cdb-4589-4425-be5a-8be3982e0a5a",
+        "g_BearerToken&69bf5cdb-4589-4425-be5a-8be3982e0a5a",
+        "g_TransactionItem&69bf5cdb-4589-4425-be5a-8be3982e0a5a",
+        "dtToProcess&Sequence_1",
+        "credNetworkCredentials&Sequence_2",
+        "rowCurrentMessage&Sequence_2",
+        "dtInProgress&Sequence_2",
+        "rowInProgressMessage&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionNumber",
+        "out_boolLastTransaction",
+        "in_strProcessType",
+        "in_boolContinue"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&9a16186d-55c3-4ead-bb4b-36aa5b2df057",
+        "g_Config&9a16186d-55c3-4ead-bb4b-36aa5b2df057",
+        "g_swProcessingTimer&9a16186d-55c3-4ead-bb4b-36aa5b2df057",
+        "g_intExitPoint&9a16186d-55c3-4ead-bb4b-36aa5b2df057",
+        "g_BearerToken&9a16186d-55c3-4ead-bb4b-36aa5b2df057",
+        "g_TransactionItem&9a16186d-55c3-4ead-bb4b-36aa5b2df057"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Process/Process Transaction.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "g_arrCaseID&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_Config&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_swProcessingTimer&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_intExitPoint&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_BearerToken&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "g_TransactionItem&f285240c-14b6-4ea0-ba80-a284de0aec49",
+        "strStatus&Flowchart_1",
+        "bolNamesMatch&Flowchart_1",
+        "strIndexDogNameNorm&Flowchart_1",
+        "strEmailDogsNameNorm&Flowchart_1",
+        "strOwnerName&Flowchart_1",
+        "strOwnerEmail&Flowchart_1",
+        "strOrder&Flowchart_1",
+        "strIndexDogName&Flowchart_1",
+        "strEmailDogsName&Flowchart_1",
+        "strFullName&Flowchart_1",
+        "strEmailBody&Flowchart_1",
+        "strEmailAddress&Flowchart_1",
+        "strLastname&Sequence_1",
+        "strFirstname&Sequence_1",
+        "strMatchReturned&Flowchart_1",
+        "strIndexNumber&Flowchart_1",
+        "ExtractDataTable&Sequence_26",
+        "strExtractedText&Sequence_27"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}

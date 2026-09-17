@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="EJ7u2g1i80uUVd_NqZPosw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/withdraw/ED100616" CVScreenId="3d2657ac-f1bd-4cfa-949f-1411737c1f94" CvElementArea="1040, 1151, 251, 74" CvTextArea="1060, 1170, 210, 40" CvTextArgument="Withdraw dog" CvType="Button" DesignTimeRectangle="1045, 1154, 244, 65" DesignTimeScaleFactor="1.75" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" Guid="c42547ff-cf2a-47d8-84f4-5eb51f57691a" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Withdraw dog and send confirmation - Dangerous Dogs Index' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="b38e616871d21192cd4315f08d95d7e5.png" xmlns="">0EPJrXYjsF0e9sh_oF_4iMA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

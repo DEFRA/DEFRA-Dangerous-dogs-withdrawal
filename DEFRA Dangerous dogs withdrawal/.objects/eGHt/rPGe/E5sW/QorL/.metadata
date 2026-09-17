@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Withdraw dog",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "QorLdAFoO06BCHo1G78S3g",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/QorLdAFoO06BCHo1G78S3g",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg",
+  "Created": "2026-08-03T06:31:59.4968151Z",
+  "Updated": "2026-08-03T06:31:59.4968151Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
