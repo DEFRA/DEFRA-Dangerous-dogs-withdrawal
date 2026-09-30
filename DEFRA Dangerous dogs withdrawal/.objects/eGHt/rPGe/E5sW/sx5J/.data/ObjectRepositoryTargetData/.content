@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-16"?>
-<ObjectRepositoryTargetData ContentHash="7bFy2kG98kax1fzDlr2U3g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ObjectRepositoryTargetData ContentHash="zaBXLd5mBES41ka2kl7Vog" Reference="u70FNKxx7EOHPBwkfez66Q/sx5Jl1TWZ0am01QG5zqFCA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ObjectRepositoryTargetData.Data>
-    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="98012165-3f12-48b8-abc7-d963e002903d" CvTextArea="1079, 1168, 141, 33" CvTextArgument="ED17086" CvType="Text" DesignTimeRectangle="1081, 1168, 139, 37" DesignTimeScaleFactor="1.75" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='main-content' tag='A' type='' class='govuk-link govuk-link--no-visited-state' aaname='                     *             ' check:innerText='ED17086' /&gt;" Guid="835403a5-7271-4450-97ec-aed882af1445" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search results - 1 records found - Dangerous Dogs Index' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="98012165-3f12-48b8-abc7-d963e002903d" CvTextArea="1079, 1168, 141, 33" CvTextArgument="ED*" CvType="Text" DesignTimeRectangle="1081, 1168, 139, 37" DesignTimeScaleFactor="1.75" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='main-content' tag='A' type='' class='govuk-link govuk-link--no-visited-state' aaname='                     *             ' check:innerText='ED17086' /&gt;" Guid="835403a5-7271-4450-97ec-aed882af1445" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search results - * records found - Dangerous Dogs Index' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
       <TargetAnchorable.Anchors>
-        <scg:List x:TypeArguments="ITarget" Capacity="4">
+        <scg:List x:TypeArguments="ITarget" Capacity="1">
           <Target CVScreenId="98012165-3f12-48b8-abc7-d963e002903d" CvTextArea="1042, 1072, 245, 31" CvTextArgument="1 record found." CvType="Text" DesignTimeRectangle="1045, 1068, 1102, 44" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='govuk-heading-s' aaname='                      * record found.                ' check:innerText='1 record found.' /&gt;" Guid="3f627ea5-eb54-467b-9c26-57740fa93ca3" SearchSteps="FuzzySelector, CV" />
         </scg:List>
       </TargetAnchorable.Anchors>
-      <imageRef attrName="InformativeScreenshot" originalValue="5c2c32208471bdef9ce319408d8b666d.png" xmlns="">0ZyCqx_8VBk2YAbNR7bdVZQ</imageRef>
+      <imageRef attrName="InformativeScreenshot" originalValue="5c2c32208471bdef9ce319408d8b666d.png" xmlns="">0ZuRrfl9qa0GiqlfWUTRq7g</imageRef>
     </TargetAnchorable>
     <x:String x:Key="ActivityType">Click</x:String>
   </ObjectRepositoryTargetData.Data>

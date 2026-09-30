@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="NTTWG3kG6Eu_uN-NjVFJ0g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/view/dog-details/ED123456" CVScreenId="638e66fd-ea44-4fe7-b195-7d66eb8daaf0" CvElementArea="1036, 485, 30, 35" CvTextArea="1067, 488, 66, 26" CvTextArgument="Back" CvType="ArrowButton" DesignTimeRectangle="1045, 484, 87, 35" DesignTimeScaleFactor="1.75" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='back' tag='A' type='' class='govuk-back-link' aaname='Back' check:innerText='Back' /&gt;" Guid="912fb725-0d7a-4817-b341-152d1ad30b4f" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dog ED123456 - Dangerous Dogs Index' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="4ab7db2cf92dc1d2d8c67a55c50f6e35.png" xmlns="">0tlZtVHst-U2YY9FHBRI2sg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Back",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "jLs0dYPJ5Eu4e3KoDTDZVA",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/jLs0dYPJ5Eu4e3KoDTDZVA",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/Bd5OIEkf2EmIVyiTeJq-xw",
+  "Created": "2026-09-29T12:58:40.3539405Z",
+  "Updated": "2026-09-29T12:58:40.3539405Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

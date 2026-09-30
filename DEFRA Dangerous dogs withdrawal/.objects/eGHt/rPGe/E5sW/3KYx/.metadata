@@ -1,0 +1,14 @@
+﻿{
+  "Name": "ED123456",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "3KYx2KhPb0y47ht725ROgg",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/3KYx2KhPb0y47ht725ROgg",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg",
+  "Created": "2026-09-29T12:55:44.6416981Z",
+  "Updated": "2026-09-29T12:55:44.6416981Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

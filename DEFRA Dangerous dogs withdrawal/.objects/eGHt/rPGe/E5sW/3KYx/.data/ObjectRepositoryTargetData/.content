@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="ODJjH038CUmJn2TpsiVEWA" Reference="u70FNKxx7EOHPBwkfez66Q/3KYx2KhPb0y47ht725ROgg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="c5ad7f44-1387-459b-b85f-59ee045804b4" CvTextArea="1077, 1168, 161, 33" CvTextArgument="ED*" CvType="Text" DesignTimeRectangle="1081, 1168, 157, 37" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='main-content' tag='A' aaname='                     ED*             ' innertext='                     ED*             ' /&gt;" Guid="81e79734-86bd-483d-bb5f-f13e1f91d08d" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search results - * records found - Dangerous Dogs Index' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="1">
+          <Target CVScreenId="c5ad7f44-1387-459b-b85f-59ee045804b4" CvTextArea="1077, 1273, 89, 28" CvTextArgument="Status" CvType="Text" DesignTimeRectangle="1081, 1254, 344, 76" FullSelectorArgument="&lt;webctrl tag='DT' /&gt;" Guid="45933f77-4b13-4dc6-93a2-55b1486cbc82" SearchSteps="Selector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="ba9500be29a592a5f35a09cfe7dcf2d6.png" xmlns="">0hLegXBcAe0GnTSVeHSYVNA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

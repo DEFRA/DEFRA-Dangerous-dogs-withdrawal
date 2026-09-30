@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="NdzjZcP6lUWjgwEwdBFvgw" Reference="u70FNKxx7EOHPBwkfez66Q/WycL9tFMSUu9Lu8lFW5BJA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="8abe2628-27ab-4cc1-8ade-9f8a8704788e" CvTextArea="1042, 488, 78, 26" CvTextArgument="Home" CvType="Text" DesignTimeRectangle="1045, 486, 75, 31" DesignTimeScaleFactor="1.75" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='govuk-breadcrumbs__link' tag='A' type='' aaname='Home' check:innerText='Home' /&gt;" Guid="14fffe66-ffb5-4796-af34-c901ae23642d" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Dangerous Dogs Index' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="1">
+          <Target DesignTimeRectangle="1045, 246, 498, 162" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='defra-logo' tag='A' type='' aaname='                        Department for Environment Food &amp;amp; Rural Affairs                      Department for EnvironmentFood &amp;amp; Rural Affairs       ' check:innerText='Department for Environment Food &amp;amp; Rural Affairs&amp;#xA;Department&amp;#xA;for Environment&amp;#xA;Food &amp;amp; Rural Affairs' /&gt;" Guid="b7e7d1aa-87fa-4970-9f62-b94a23abf20d" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="e2b706310619439122f0ea5bd6acb887.png" xmlns="">0nQ9M3dFn_E2X2zzi4OSPCw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
