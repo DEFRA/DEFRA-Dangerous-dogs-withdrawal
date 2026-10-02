@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="9CkCXLTYNEyu3bfXHiynMA" Reference="u70FNKxx7EOHPBwkfez66Q/VzcvWzOZBk2MxsNAlWufvg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/exemption-details/ED123456" CVScreenId="d91afa63-7c5c-4e73-b55c-83b8e37d28d0" DesignTimeRectangle="1045, 1725, 222, 66" DesignTimeScaleFactor="1.75" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' innertext='   Save details ' type='submit' /&gt;" Guid="b1d81b6a-818e-4c4e-9376-c034156a61f9" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit exemption details - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="614016ed415b2e7cb615206febff9783.png" xmlns="">0v8pfEmvRz0yJwhGebM7LiA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

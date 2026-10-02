@@ -1,0 +1,265 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Response_Codes" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_intResponseStatus" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_strResponseContent" Type="InArgument(x:String)" />
+    <x:Property Name="out_boolRetry" Type="InOutArgument(x:Boolean)" />
+    <x:Property Name="io_intRetryCount" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="in_strEndPoint" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1654.8,1840</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Response_Codes_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="These are the exhaustive list of microsoft graph error codes that can be returned, with it throwing a friendly error with aspects to review - some also set the retry to True where it may be a temporary issue where retrying may allow the process to continue" DisplayName="Response_Codes" sap:VirtualizedContainerService.HintSize="1157.7142857142858,1936.5714285714287" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Increment retry counter" sap:VirtualizedContainerService.HintSize="593.1428571428571,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[io_intRetryCount]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[io_intRetryCount + 1]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Default retry to false" sap:VirtualizedContainerService.HintSize="593.1428571428571,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[out_boolRetry]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Switch x:TypeArguments="x:Int32" DisplayName="Response Code" Expression="[in_intResponseStatus]" sap:VirtualizedContainerService.HintSize="593.1428571428571,1633.142857142857" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Sequence x:Key="400" sap:VirtualizedContainerService.HintSize="553.1428571428571,973.1428571428571" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If Condition="[in_strResponseContent.Contains(&quot;AADSTS700016&quot;)]" DisplayName="If Client ID/Secret no longer exists" sap:VirtualizedContainerService.HintSize="518.8571428571429,913.1428571428571" sap2010:WorkflowViewState.IdRef="If_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484.57142857142856,175.42857142857142" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Throw DisplayName="Throw Secret doesnt exist" Exception="[new SystemException(&quot;Error AADSTS700016 - the client ID and secret no longer exist. It is likely they expired and were deleted. New ID and secret is needed. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="381.7142857142857,115.42857142857143" sap2010:WorkflowViewState.IdRef="Throw_19" />
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484.57142857142856,574.2857142857143" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[in_strResponseContent.Contains(&quot;AADSTS7000222&quot;)]" DisplayName="If Client ID/Secret expired" sap:VirtualizedContainerService.HintSize="450.2857142857143,514.2857142857143" sap2010:WorkflowViewState.IdRef="If_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,175.42857142857142" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Throw DisplayName="Throw Secret Expired" Exception="[new SystemException(&quot;Error AADSTS7000222 - the client ID and secret has expired. New ID and secret is needed. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="381.7142857142857,115.42857142857143" sap2010:WorkflowViewState.IdRef="Throw_20" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,175.42857142857142" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Throw DisplayName="Throw Bad Request" Exception="[new SystemException(&quot;The endpoint address is malformed. Check for formatting issues. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="381.7142857142857,115.42857142857143" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </If.Else>
+        </If>
+      </Sequence>
+      <Throw x:Key="401" DisplayName="Throw Unauthorised" Exception="[new SystemException(&quot;Unathorised. Check client ID/secret. If valid, the authorisation token may have expired, re-authorise and try again. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_2" />
+      <Throw x:Key="402" DisplayName="Throw Payment Required" Exception="[new SystemException(&quot;Payment required at this endpoint. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_3" />
+      <Throw x:Key="403" DisplayName="Throw Forbidden" Exception="[new SystemException(&quot;Access to this endpoint is forbidden. Check email address in endpoint is correct. Also check that the 'Add user to security mailgroup' developer guide here has been completed for all impacted users: https://defra.sharepoint.com/:w:/r/sites/Community290/Core%20Team%20Only/002%20Development%20Team/Documents/Guides/Add%20user%20to%20security%20mailgroup.docx?d=w8cc4b571f89749e19edfc2074c46d3a7&amp;csf=1&amp;web=1&amp;e=gyjCsG  Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_4" />
+      <Throw x:Key="404" DisplayName="Throw Not Found" Exception="[new SystemException(&quot;Endpoint does not exist. Check spellings. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_5" />
+      <Throw x:Key="405" DisplayName="Throw Method Invalid" Exception="[new SystemException(&quot;Method not allowed - check the http type (GET, PUT, PATCH etc). Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_6" />
+      <Throw x:Key="406" DisplayName="Throw Not Acceptable" Exception="[new SystemException(&quot;Format requested is invalid. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_7" />
+      <Assign x:Key="409" DisplayName="Retry" sap:VirtualizedContainerService.HintSize="434,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[out_boolRetry]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="410" DisplayName="Retry" sap:VirtualizedContainerService.HintSize="434,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[out_boolRetry]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Throw x:Key="411" DisplayName="Throw Length Required" Exception="[new SystemException(&quot;Content length header is required on this request. Check header. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_10" />
+      <Throw x:Key="412" DisplayName="Throw Precondition Failed" Exception="[new SystemException(&quot;Precondition Failed. A precondition provided in the request (such as an if-match header) does not match the resources current state. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_11" />
+      <Throw x:Key="413" DisplayName="Throw Request Entity Too Large" Exception="[new SystemException(&quot;Request Entity Too Large. Size of this request is too large - check length of configurable elements. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_12" />
+      <Throw x:Key="415" DisplayName="Throw Unsupported Media Type" Exception="[new SystemException(&quot;The content type of the request is a format that is not supported by the service. - check length of configurable elements. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_13" />
+      <Throw x:Key="416" DisplayName="Throw Requested Range Not Satisfiable" Exception="[new SystemException(&quot;The specified byte range is invalid or unavailable. - check length of configurable elements. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_14" />
+      <Throw x:Key="422" DisplayName="Throw Unprocessable Entity" Exception="[new SystemException(&quot;Unprocessable Entity. Can not process the request because it is semantically incorrect - check configurable elements. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_15" />
+      <Assign x:Key="423" DisplayName="Retry" sap:VirtualizedContainerService.HintSize="434,81.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[out_boolRetry]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Sequence x:Key="429" sap:VirtualizedContainerService.HintSize="496,392.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Threshold throttling error encountered. Initiating a 5 minute cooldown delay&quot;]" />
+        <Delay DisplayName="5 Minute Delay" Duration="00:05:00" sap:VirtualizedContainerService.HintSize="434,24.8" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        <Assign DisplayName="Retry" sap:VirtualizedContainerService.HintSize="434,82.4" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Boolean">[out_boolRetry]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Throw x:Key="500" DisplayName="Throw Internal server error" Exception="[new SystemException(&quot;Internal server error. Check configurable elements. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_16" />
+      <Throw x:Key="501" DisplayName="Throw Feature unavailable" Exception="[new SystemException(&quot;Feature not implemented at Microsofts servers. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_17" />
+      <Sequence x:Key="503" sap:VirtualizedContainerService.HintSize="496,392.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Service unavailable, adding delay before retry.&quot;]" />
+        <Delay DisplayName="30 Second Delay" Duration="00:00:30" sap:VirtualizedContainerService.HintSize="434,24.8" sap2010:WorkflowViewState.IdRef="Delay_2" />
+        <Assign DisplayName="Retry" sap:VirtualizedContainerService.HintSize="434,82.4" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Boolean">[out_boolRetry]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Assign x:Key="504" DisplayName="Retry" sap:VirtualizedContainerService.HintSize="434,82.4" sap2010:WorkflowViewState.IdRef="Assign_9">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[out_boolRetry]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Throw x:Key="507" DisplayName="Throw Insufficient storage" Exception="[new SystemException(&quot;Insufficient storage at target location. Raise with myIT or CCoE. Endpoint: &quot; &amp; in_strEndPoint)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_18" />
+      <Sequence x:Key="509" sap:VirtualizedContainerService.HintSize="496,392.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;Insufficient bandwidth - cap reached. Initiating a 5 minute cooldown delay&quot;]" />
+        <Delay DisplayName="5 Minute Delay" Duration="00:05:00" sap:VirtualizedContainerService.HintSize="434,24.8" sap2010:WorkflowViewState.IdRef="Delay_3" />
+        <Assign DisplayName="Retry" sap:VirtualizedContainerService.HintSize="434,82.4" sap2010:WorkflowViewState.IdRef="Assign_10">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Boolean">[out_boolRetry]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </Switch>
+  </Sequence>
+</Activity>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="0_2qKWfYXkCu_tkbvcL73Q" Reference="u70FNKxx7EOHPBwkfez66Q/STbjiD_GsUyceT7Wz-SmaA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/exemption-details/ED123456" DesignTimeRectangle="1045, 1559, 91, 70" DesignTimeScaleFactor="1.75" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='withdrawn-day' tag='INPUT' /&gt;" Guid="3952ac16-a1f5-447e-9c95-fe01d8cd2db1" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit exemption details - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="d040f984-11d3-4480-84dd-c81a6cc49feb" CvTextArea="1042, 1511, 63, 38" CvTextArgument="Day" CvType="Text" DesignTimeRectangle="1045, 1507, 91, 43" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='withdrawn' tag='LABEL' type='' class='govuk-label govuk-date-input__label' aaname='             Day           ' check:innerText='Day' /&gt;" Guid="097dff2d-5d85-49f5-af01-3ab250511ab6" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="52eeeb03cdce7549845ade03a941b5b1.png" xmlns="">0-yw83sGb5EGrUFTT28VUxQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

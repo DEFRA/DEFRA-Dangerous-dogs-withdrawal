@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="JDWEQWgsT02r_lqR0KT8AQ" Reference="u70FNKxx7EOHPBwkfez66Q/m8NxUYbDwEeNDVsyQSvnTw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/withdrawal-confirmation/ED999993/email" CVScreenId="0138c3ad-1c4e-41ca-8df3-e29e4861bc31" CvTextArea="1042, 488, 78, 26" CvTextArgument="Home" CvType="Text" DesignTimeRectangle="1042, 487, 78, 28" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl class='govuk-breadcrumbs__link' tag='A' aaname='Home' innertext='Home' /&gt;" Guid="c1f41e6e-33a8-4ea6-9c10-25a181b11abb" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Withdraw dog and send confirmation - Dangerous Dogs Index' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="fad19add628e40022ab14c1168463e90.png" xmlns="">0pTRn2drbc0Kd-x8_uT5Aow</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

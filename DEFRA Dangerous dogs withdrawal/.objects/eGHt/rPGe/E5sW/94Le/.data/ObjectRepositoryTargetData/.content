@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Q63uHqJJ7EO444TO9cvpnA" Reference="u70FNKxx7EOHPBwkfez66Q/94LeQSS90UyssyHFArTXLg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/view/dog-details/ED999993" DesignTimeRectangle="2541, 1363, 116, 66" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Withdraw dog' parentid='main-content' tag='A' /&gt;" Guid="17cbfd66-3b75-47dc-acce-0d8d305594be" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dog ED* - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="d2e8ae8d2303adc554b80e2ebd0db2e8.png" xmlns="">049KxGyTvEUONjtYWNi6SmQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

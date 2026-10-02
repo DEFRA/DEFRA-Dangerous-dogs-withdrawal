@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Edge Dangerous Dogs Index(2)",
+  "Type": "Screen",
+  "Id": "BzTGNLFCrE6_3Wb9SIqneQ",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/BzTGNLFCrE6_3Wb9SIqneQ",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/rPGeUFyvQUiNfS4NbDt0Lw",
+  "Created": "2026-10-02T12:56:27.0627975Z",
+  "Updated": "2026-10-02T12:56:27.0627975Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

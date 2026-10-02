@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Add an activity",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "bGbZS3HOJU62eknMZORIQA",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/bGbZS3HOJU62eknMZORIQA",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg",
+  "Created": "2026-10-02T11:07:32.732331Z",
+  "Updated": "2026-10-02T11:07:32.732331Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

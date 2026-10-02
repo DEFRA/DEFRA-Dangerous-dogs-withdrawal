@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="WIa9WuCEWkyHJFeiGHRx3A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/exemption-details/ED123456" DesignTimeRectangle="1171, 1559, 92, 70" DesignTimeScaleFactor="1.75" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='withdrawn-month' tag='INPUT' /&gt;" Guid="98f51c3a-5127-4408-aa20-032e6ee30f9d" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit exemption details - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="d040f984-11d3-4480-84dd-c81a6cc49feb" CvTextArea="1168, 1511, 94, 31" CvTextArgument="Month" CvType="Text" DesignTimeRectangle="1171, 1507, 93, 43" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='             Month           ' parentid='withdrawn' tag='LABEL' type='' class='govuk-label govuk-date-input__label' check:innerText='Month' /&gt;" Guid="09b87075-b03f-42e8-9b74-26ee119be846" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="f8be69e197fc21821aca1a538f803549.png" xmlns="">0Pm6FsYCLtEaRVmF2U1Z2mA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

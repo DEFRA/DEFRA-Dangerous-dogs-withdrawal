@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="WcS8U4fDB0SnaOwBsHoJOw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/exemption-details/ED123456" CVScreenId="d040f984-11d3-4480-84dd-c81a6cc49feb" DesignTimeRectangle="1299, 1559, 149, 70" DesignTimeScaleFactor="1.75" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='withdrawn-year' tag='INPUT' /&gt;" Guid="03e0be46-eeeb-4752-a8d9-ed9950275620" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit exemption details - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="d040f984-11d3-4480-84dd-c81a6cc49feb" CvTextArea="1294, 1511, 73, 31" CvTextArgument="Year" CvType="Text" DesignTimeRectangle="1299, 1507, 149, 43" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='             Year           ' parentid='withdrawn' tag='LABEL' type='' class='govuk-label govuk-date-input__label' check:innerText='Year' /&gt;" Guid="28b77832-ddff-4654-ae1f-717e39df8c2e" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="260b54aa44d01fd1350ced26784b05e1.png" xmlns="">0Vpl5Qk5z7kySbesrQzAT5Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

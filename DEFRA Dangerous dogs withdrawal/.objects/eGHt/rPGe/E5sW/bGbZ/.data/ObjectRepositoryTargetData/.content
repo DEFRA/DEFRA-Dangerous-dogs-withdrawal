@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="fiwAeoBpfUeaIaaMTBikOw" Reference="u70FNKxx7EOHPBwkfez66Q/bGbZS3HOJU62eknMZORIQA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/view/dog-details/ED123456" CVScreenId="da91c2cf-bb1f-4489-9993-0050f22242a5" DesignTimeRectangle="2208, 632, 257, 66" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl aria-role='button' tag='A' aaname='               Add an activity             ' innertext='               Add an activity             ' /&gt;" Guid="288d23e6-237c-4ca9-81fb-1a7d20393241" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dog ED* - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="0fa8e5eb0b7462dac367d924f068e216.png" xmlns="">0ln8EginySUamJTBtCaX6ng</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

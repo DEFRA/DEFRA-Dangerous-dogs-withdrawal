@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process_Transaction_2" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="834,1516.4" sap2010:WorkflowViewState.IdRef="Process_Transaction_2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="clr-namespace:DRACOE_PopUps_64;assembly=DRACOE.PopUps.64" xmlns:de="clr-namespace:DRACOE_Microsoft_Graph_64.Exchange;assembly=DRACOE Microsoft Graph 64" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System.Private.CoreLib" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uast="clr-namespace:UiPath.Activities.System.Text;assembly=UiPath.System.Activities" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process_Transaction_2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="clr-namespace:DRACOE_PopUps_64;assembly=DRACOE.PopUps.64" xmlns:de="clr-namespace:DRACOE_Microsoft_Graph_64.Exchange;assembly=DRACOE Microsoft Graph 64" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System.Private.CoreLib" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="OUT_strOutcomeNotes" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>834,1516.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Process_Transaction_2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -64,6 +72,9 @@
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
       <x:String>UiPath.Activities.System.Text</x:String>
       <x:String>System.Net</x:String>
+      <x:String>UiPath.Web.Activities.JSON.Models</x:String>
+      <x:String>UiPath.Shared.Telemetry</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -160,9 +171,11 @@
       <AssemblyReference>System.Net.Requests</AssemblyReference>
       <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " sap:VirtualizedContainerService.HintSize="1174.2857142857142,1067.182857142857" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " sap:VirtualizedContainerService.HintSize="1858.2857142857142,1067.4285714285713" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strMatchReturned" />
       <Variable x:TypeArguments="x:String" Name="strIndexNumber" />
@@ -211,7 +224,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign sap:VirtualizedContainerService.HintSize="479.42857142857144,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_16">
+        <Assign DisplayName="Assign strEmailBody" sap:VirtualizedContainerService.HintSize="479.42857142857144,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_16">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[strEmailBody]</OutArgument>
           </Assign.To>
@@ -219,7 +232,7 @@
             <InArgument x:TypeArguments="x:String">[g_TransactionItem("Body").ToString]</InArgument>
           </Assign.Value>
         </Assign>
-        <Assign sap:VirtualizedContainerService.HintSize="479.42857142857144,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_21">
+        <Assign DisplayName="Assign strDecodedEmailBody" sap:VirtualizedContainerService.HintSize="479.42857142857144,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_21">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[strDecodedEmailBody]</OutArgument>
           </Assign.To>
@@ -227,7 +240,7 @@
             <InArgument x:TypeArguments="x:String">[System.Net.WebUtility.HtmlDecode(strEmailBody)]</InArgument>
           </Assign.Value>
         </Assign>
-        <ui:MultipleAssign DisplayName="Extract MetaData" sap:VirtualizedContainerService.HintSize="479.42857142857144,304.57142857142856" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign DisplayName="Extract MetaData" sap:VirtualizedContainerService.HintSize="479.42857142857144,335.42857142857144" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -243,6 +256,14 @@
         System.Text.RegularExpressions.RegexOptions.Singleline
     ).Groups(1).Value
 ).Trim]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[strFirstname]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(strFirstname, "^(Mr|Mrs|Miss|Ms|Dr|Prof)\.?\s+", "", System.Text.RegularExpressions.RegexOptions.IgnoreCase).Trim()]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -316,7 +337,13 @@
             </scg:List>
           </ui:MultipleAssign.AssignOperations>
         </ui:MultipleAssign>
-        <If Condition="[CBool(g_Config(&quot;PausePoint1&quot;))]" sap:VirtualizedContainerService.HintSize="479.42857142857144,1085.7142857142858" sap2010:WorkflowViewState.IdRef="If_1">
+        <If Condition="[CBool(g_Config(&quot;PausePoint1&quot;))]" sap:VirtualizedContainerService.HintSize="479.42857142857144,48" sap2010:WorkflowViewState.IdRef="If_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
           <If.Then>
             <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,831.4285714285714" sap2010:WorkflowViewState.IdRef="Sequence_30">
               <sap:WorkflowViewStateService.ViewState>
@@ -363,19 +390,19 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index" sap:VirtualizedContainerService.HintSize="450.2857142857143,936" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index" sap:VirtualizedContainerService.HintSize="507.42857142857144,1176" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V2" WindowResize="Maximize">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,693.1428571428571" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="473.14285714285717,933.1428571428571" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search dog index'" sap:VirtualizedContainerService.HintSize="381.7142857142857,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search dog index'" sap:VirtualizedContainerService.HintSize="438.85714285714283,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud" CVScreenId="aaff3050-e995-4cff-aa70-3ab066aff993" ContentHash="dLYtaqOqGEyW2w1gXRYjGw" CvTextArea="1077, 761, 264, 31" CvTextArgument="Search dog index" CvType="Text" DesignTimeRectangle="1081, 759, 259, 37" DesignTimeScaleFactor="1.75" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='main-content' tag='A' type='' class='govuk-link govuk-link--no-visited-state' aaname='Search dog index' check:innerText='Search dog index' /&gt;" Guid="238707ab-2537-45af-adab-c7d3b4b81ca1" InformativeScreenshot="d13300bbd0ec25d58c5d572e6bcc3985.png" Reference="u70FNKxx7EOHPBwkfez66Q/W2dXs5mhTkCtqDxTqkVTLw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dangerous Dogs Index' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -386,7 +413,7 @@
                         </uix:TargetAnchorable>
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Index Number" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="381.7142857142857,254.85714285714286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Text="[strIndexNumber + &quot;[k(Enter)]&quot;]" Version="V4">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Index Number" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="438.85714285714283,254.85714285714286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Text="[strIndexNumber + &quot;[k(Enter)]&quot;]" Version="V4">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="99e62600-77f9-46cd-854f-5c5f14df7f56" ContentHash="itcZ1MrqPEyWd2QDwH1vXQ" CvElementArea="1040, 690, 1107, 76" CvType="InputBox" DesignTimeRectangle="1045, 694, 1102, 70" DesignTimeScaleFactor="1.75" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='searchTerms' tag='INPUT' type='text' class='govuk-input' aaname='       Search     ' /&gt;" Guid="06c7a68f-184f-4be4-befc-be83b1a69a50" InformativeScreenshot="1c1770e608dd08987c894ec09fdb2151.png" IsResponsive="True" Reference="u70FNKxx7EOHPBwkfez66Q/TJTSeJ5dT0iZK50-F55gaw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search - Dangerous Dogs Index' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -397,17 +424,44 @@
                         </uix:TargetAnchorable>
                       </uix:NTypeInto.Target>
                     </uix:NTypeInto>
-                    <uix:NGetText DisplayName="Check whether there is a match" sap:VirtualizedContainerService.HintSize="381.7142857142857,184.57142857142858" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" TextString="[strMatchReturned]" Version="V4">
-                      <uix:NGetText.Target>
-                        <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="3e4159bf-5819-444f-bbf1-5e8e7d6ac6a9" ContentHash="iiQDmbH6A0CKTub--iCt6Q" CvTextArea="1041, 1020, 685, 31" CvType="AnyWordGroup" DesignTimeRectangle="1045, 1015, 1102, 43" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='govuk-body govuk-!-margin-top-2' aaname='Your search for  did not match any records.' /&gt;" Guid="d8f2fa0f-5d58-4522-a92c-e736f529efb8" ImageBase64="" InformativeScreenshot="b185aa99f67138ea7020f913919f962f.png" Reference="u70FNKxx7EOHPBwkfez66Q/dhSwZAbf5kmspw83He6MnQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search *- Dangerous Dogs Index' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                          <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target CVScreenId="3e4159bf-5819-444f-bbf1-5e8e7d6ac6a9" CvTextArea="1041, 1098, 196, 38" CvTextArgument="Suggestions:" CvType="Text" DesignTimeRectangle="1045, 1093, 1102, 44" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='govuk-body' tag='P' type='' aaname='Suggestions:' check:innerText='Suggestions:' /&gt;" Guid="e6b9b3e1-7862-4196-b465-b3ea6ba4bd29" SearchSteps="FuzzySelector, CV" />
-                            </scg:List>
-                          </uix:TargetAnchorable.Anchors>
-                        </uix:TargetAnchorable>
-                      </uix:NGetText.Target>
-                    </uix:NGetText>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.85714285714283,424.57142857142856" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                      <TryCatch.Try>
+                        <uix:NGetText DisplayName="Check whether there is a match" sap:VirtualizedContainerService.HintSize="400,159.42857142857142" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" TextString="[strMatchReturned]" Version="V4">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="3e4159bf-5819-444f-bbf1-5e8e7d6ac6a9" ContentHash="z4e25LML_UGWyd_Zmf4gCw" CvTextArea="1041, 1020, 685, 31" CvType="AnyWordGroup" DesignTimeRectangle="1045, 1015, 1102, 43" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='govuk-body govuk-!-margin-top-2' aaname='Your search for  did not match any records.' /&gt;" Guid="d8f2fa0f-5d58-4522-a92c-e736f529efb8" ImageBase64="" InformativeScreenshot="b185aa99f67138ea7020f913919f962f.png" Reference="u70FNKxx7EOHPBwkfez66Q/dhSwZAbf5kmspw83He6MnQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search *- Dangerous Dogs Index' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="3e4159bf-5819-444f-bbf1-5e8e7d6ac6a9" CvTextArea="1041, 1098, 196, 38" CvTextArgument="Suggestions:" CvType="Text" DesignTimeRectangle="1045, 1093, 1102, 44" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='govuk-body' tag='P' type='' aaname='Suggestions:' check:innerText='Suggestions:' /&gt;" Guid="e6b9b3e1-7862-4196-b465-b3ea6ba4bd29" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.57142857142856,24" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="Nothing" />
+                            </ActivityAction.Argument>
+                            <Assign sap:VirtualizedContainerService.HintSize="434.2857142857143,85.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_178">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strMatchReturned]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">Match Found</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
                   </Sequence>
                 </ActivityAction>
               </uix:NApplicationCard.Body>
@@ -486,15 +540,63 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <Sequence DisplayName="Email User - Incorrect Index" sap:VirtualizedContainerService.HintSize="109.71428571428571,69.71428571428571" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="boolRetry" />
+                          <Variable x:TypeArguments="x:String" Name="strEndPoint" />
+                          <Variable x:TypeArguments="x:Int32" Name="intRetryCount" />
+                          <Variable x:TypeArguments="s:String[]" Name="arrRecipients" />
+                          <Variable x:TypeArguments="x:String" Name="strOutput" />
+                          <Variable x:TypeArguments="njl:JArray" Name="jarRecipients" />
+                          <Variable x:TypeArguments="njl:JObject" Name="jsonPayloadBody" />
+                          <Variable x:TypeArguments="x:String" Name="in_strToRecipients" />
+                          <Variable x:TypeArguments="x:String" Name="in_strCc" />
+                          <Variable x:TypeArguments="x:String" Name="in_strBcc" />
+                          <Variable x:TypeArguments="x:String" Name="in_strAttachments" />
+                          <Variable x:TypeArguments="x:String" Name="strResponseContent" />
+                          <Variable x:TypeArguments="x:Int32" Name="intResponseStatus" />
+                          <Variable x:TypeArguments="x:String" Name="strDate" />
+                          <Variable x:TypeArguments="x:String" Name="OUT_strOutcomeNotes" />
+                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Attempting to Send Email - No Matching Index Number&quot;]" />
-                        <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" DisplayName="Download failure letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,169.71428571428572" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_2" Path="Withdrawal failure letter.docx" StorageBucketName="DD Withdrawal Letters" />
-                        <uast:FindAndReplace DisplayName="Find and Replace" sap:VirtualizedContainerService.HintSize="450.2857142857143,282.85714285714283" sap2010:WorkflowViewState.IdRef="FindAndReplace_1" MatchCase="False" ReplaceWith="[DateTime.Now.ToString(&quot;dd/MM/yyyy&quot;)]" Source="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" ValueToFind="%[Date]" />
-                        <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="450.2857142857143,1591.4285714285713" sap2010:WorkflowViewState.IdRef="If_4">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Attempting to Send Email - No Matching Index Number&quot;]" />
+                        <Assign DisplayName="Assign strDate" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_315">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[DateTime.Now.Day.ToString &amp;
+If(DateTime.Now.Day = 1 Or DateTime.Now.Day = 21 Or DateTime.Now.Day = 31,"st",
+If(DateTime.Now.Day = 2 Or DateTime.Now.Day = 22,"nd",
+If(DateTime.Now.Day = 3 Or DateTime.Now.Day = 23,"rd","th"))) &amp;
+" " &amp; DateTime.Now.ToString("MMMM yyyy")]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="Assign strEmailBody - Incorrect Information" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_314">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[strEmailBody]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html&gt;&lt;body&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; " &amp; strDate &amp; "&lt;/p&gt;" &amp;
+"&lt;p&gt;Dear Sir/Madam,&lt;/p&gt;" &amp;
+"&lt;p&gt;We are notifying you that your recent application to withdraw your Certificate of Exemption has &lt;strong&gt;failed&lt;/strong&gt;. This is because one or more pieces of information you provided does not match the information we hold.&lt;/p&gt;" &amp;
+"&lt;p&gt;You can reapply, but the information you provide must match your Certificate of Exemption.&lt;/p&gt;" &amp;
+"&lt;p&gt;Yours sincerely&lt;br/&gt;Dogs Index Team&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; &lt;a href=""mailto:dogsindex@defra.gov.uk""&gt;dogsindex@defra.gov.uk&lt;/a&gt;&lt;/p&gt;" &amp;
+"&lt;/body&gt;&lt;/html&gt;"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="434.2857142857143,57.142857142857146" sap2010:WorkflowViewState.IdRef="If_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
                             <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,1328" sap2010:WorkflowViewState.IdRef="Sequence_36">
                               <sap:WorkflowViewStateService.ViewState>
@@ -507,12 +609,12 @@
                                   <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
                                 </InvokeMethod.TargetObject>
                               </InvokeMethod>
-                              <de:Save_Draft in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_1" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
-                                <de:Save_Draft.in_strEmailBody>
+                              <de:Save_Draft in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_11" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailBody="[strEmailBody]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
+                                <de:Save_Draft.in_strAttachments>
                                   <InArgument x:TypeArguments="x:String">
                                     <Literal x:TypeArguments="x:String" Value="" />
                                   </InArgument>
-                                </de:Save_Draft.in_strEmailBody>
+                                </de:Save_Draft.in_strAttachments>
                               </de:Save_Draft>
                               <d:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="Generic PopUp" sap:VirtualizedContainerService.HintSize="381.7142857142857,443.42857142857144" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\PausePoint.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;Pause Point #3&lt;/h1&gt;&quot; +&#xA;&quot;&lt;p&gt;I am about to email to advise that the withdrawn is not possible due to incorrect information Plese check that this is correct and, if you are happy, click Continue.&lt;/p&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{600,500}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_4" />
                               <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="381.7142857142857,159.42857142857142" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Start">
@@ -532,14 +634,21 @@
                             </Sequence>
                           </If.Else>
                         </If>
-                        <de:Send_Email in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="450.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_2" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
-                          <de:Send_Email.in_strEmailBody>
+                        <de:Send_Email in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_7" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailBody="[strEmailBody]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
+                          <de:Send_Email.in_strAttachments>
                             <InArgument x:TypeArguments="x:String">
                               <Literal x:TypeArguments="x:String" Value="" />
                             </InArgument>
-                          </de:Send_Email.in_strEmailBody>
+                          </de:Send_Email.in_strAttachments>
                         </de:Send_Email>
-                        <ui:DeleteFileX DisplayName="Delete withdrawal letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,105.14285714285714" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" />
+                        <Assign DisplayName="Assign OUT_strOutcomeNotes" sap:VirtualizedContainerService.HintSize="434.2857142857143,108" sap2010:WorkflowViewState.IdRef="Assign_324">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[OUT_strOutcomeNotes]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                          </Assign.Value>
+                        </Assign>
                       </Sequence>
                     </FlowStep>
                   </FlowStep.Next>
@@ -560,14 +669,14 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="553.1428571428571,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Attempting to Extract MetaData&quot;]" />
-                    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index" sap:VirtualizedContainerService.HintSize="553.1428571428571,2623.4285714285716" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="386fe3b8-a988-48f8-999f-fadb841200e4" Version="V2">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="571.4285714285714,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Attempting to Extract MetaData&quot;]" />
+                    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index" sap:VirtualizedContainerService.HintSize="571.4285714285714,1968" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="386fe3b8-a988-48f8-999f-fadb841200e4" Version="V2">
                       <uix:NApplicationCard.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518.8571428571429,2380.5714285714284" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="537.1428571428571,1725.142857142857" sap2010:WorkflowViewState.IdRef="Sequence_26">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="sd1:DataTable" Name="ExtractDataTable" />
                             </Sequence.Variables>
@@ -577,7 +686,7 @@
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'ED123456'" sap:VirtualizedContainerService.HintSize="484.57142857142856,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="386fe3b8-a988-48f8-999f-fadb841200e4" Version="V4">
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'ED123456'" sap:VirtualizedContainerService.HintSize="502.85714285714283,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="386fe3b8-a988-48f8-999f-fadb841200e4" Version="V4">
                               <uix:NClick.Target>
                                 <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="c5ad7f44-1387-459b-b85f-59ee045804b4" ContentHash="ODJjH038CUmJn2TpsiVEWA" CvTextArea="1077, 1168, 161, 33" CvTextArgument="ED*" CvType="Text" DesignTimeRectangle="1081, 1168, 157, 37" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='main-content' tag='A' aaname='                     ED*             ' innertext='                     ED*             ' /&gt;" Guid="81e79734-86bd-483d-bb5f-f13e1f91d08d" InformativeScreenshot="ba9500be29a592a5f35a09cfe7dcf2d6.png" Reference="u70FNKxx7EOHPBwkfez66Q/3KYx2KhPb0y47ht725ROgg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search results - * records found - Dangerous Dogs Index' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                                   <uix:TargetAnchorable.Anchors>
@@ -588,12 +697,12 @@
                                 </uix:TargetAnchorable>
                               </uix:NClick.Target>
                             </uix:NClick>
-                            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='New column 0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='main' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="484.57142857142856,191.42857142857142" sap2010:WorkflowViewState.IdRef="NExtractData_4" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="386fe3b8-a988-48f8-999f-fadb841200e4" Version="V4">
+                            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='New column 0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='main' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="502.85714285714283,191.42857142857142" sap2010:WorkflowViewState.IdRef="NExtractData_4" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="386fe3b8-a988-48f8-999f-fadb841200e4" Version="V4">
                               <uix:NExtractData.Target>
                                 <uix:TargetAnchorable BrowserURL="https://aphw-ddi-portal-prd.azure.defra.cloud/cdo/view/dog-details/ED17086?src=ba99-2b51" DesignTimeRectangle="1045, 331, 1680, 1935" DesignTimeScaleFactor="1.75" FullSelectorArgument="&lt;webctrl class='govuk-width-container' css-selector='body&amp;gt;div' tag='DIV' /&gt;" Guid="99803f1d-1d5f-47ef-a701-553a380d6aa5" InformativeScreenshot="ec28b746ed2bf51eb3582aa851c045d2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dog ED* - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                               </uix:NExtractData.Target>
                             </uix:NExtractData>
-                            <Sequence DisplayName="Extract Metdata" sap:VirtualizedContainerService.HintSize="484.57142857142856,847.4285714285714" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                            <Sequence DisplayName="Extract Metdata" sap:VirtualizedContainerService.HintSize="502.85714285714283,1229.7142857142858" sap2010:WorkflowViewState.IdRef="Sequence_27">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="strExtractedText" />
                               </Sequence.Variables>
@@ -603,7 +712,7 @@
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign strExtractedText" sap:VirtualizedContainerService.HintSize="450.2857142857143,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_11">
+                              <Assign DisplayName="Assign strExtractedText" sap:VirtualizedContainerService.HintSize="468.57142857142856,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_11">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[strExtractedText]</OutArgument>
                                 </Assign.To>
@@ -611,7 +720,7 @@
                                   <InArgument x:TypeArguments="x:String">[ExtractDataTable.Rows(0)(0).ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign strDogName" sap:VirtualizedContainerService.HintSize="450.2857142857143,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_12">
+                              <Assign DisplayName="Assign strDogName" sap:VirtualizedContainerService.HintSize="468.57142857142856,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_12">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[strIndexDogName]</OutArgument>
                                 </Assign.To>
@@ -619,7 +728,7 @@
                                   <InArgument x:TypeArguments="x:String">[If(System.Text.RegularExpressions.Regex.IsMatch(strExtractedText, "Dog details[\s\S]*?Name\s+([^\r\n]+)"), System.Text.RegularExpressions.Regex.Match(strExtractedText, "Dog details[\s\S]*?Name\s+([^\r\n]+)").Groups(1).Value.Trim(), "")]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign strOwner" sap:VirtualizedContainerService.HintSize="450.2857142857143,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_13">
+                              <Assign DisplayName="Assign strOwner" sap:VirtualizedContainerService.HintSize="468.57142857142856,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_13">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[strOwnerName]</OutArgument>
                                 </Assign.To>
@@ -627,7 +736,7 @@
                                   <InArgument x:TypeArguments="x:String">[If(System.Text.RegularExpressions.Regex.IsMatch(strExtractedText, "Owner details[\s\S]*?Name\s+([^\r\n]+)"), System.Text.RegularExpressions.Regex.Match(strExtractedText, "Owner details[\s\S]*?Name\s+([^\r\n]+)").Groups(1).Value.Trim(), "")]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign strOrder" sap:VirtualizedContainerService.HintSize="450.2857142857143,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_14">
+                              <Assign DisplayName="Assign strOrder" sap:VirtualizedContainerService.HintSize="468.57142857142856,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_14">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[strOrder]</OutArgument>
                                 </Assign.To>
@@ -635,7 +744,7 @@
                                   <InArgument x:TypeArguments="x:String">[If(System.Text.RegularExpressions.Regex.IsMatch(strExtractedText, "Order\s+(\d{4})"), System.Text.RegularExpressions.Regex.Match(strExtractedText, "Order\s+(\d{4})").Groups(1).Value.Trim(), "")]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign strOwnerEmail" sap:VirtualizedContainerService.HintSize="450.2857142857143,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_15">
+                              <Assign DisplayName="Assign strOwnerEmail" sap:VirtualizedContainerService.HintSize="468.57142857142856,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_15">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[strOwnerEmail]</OutArgument>
                                 </Assign.To>
@@ -643,18 +752,21 @@
                                   <InArgument x:TypeArguments="x:String">[If(System.Text.RegularExpressions.Regex.IsMatch(strExtractedText, "Email\s+([^\s@]+@[^\s@]+\.[^\s@]+)"), System.Text.RegularExpressions.Regex.Match(strExtractedText, "Email\s+([^\s@]+@[^\s@]+\.[^\s@]+)").Groups(1).Value.Trim(), "")]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign strStatus" sap:VirtualizedContainerService.HintSize="450.2857142857143,117.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_20">
+                              <Assign DisplayName="Assign strStatus" sap:VirtualizedContainerService.HintSize="468.57142857142856,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_22">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[strStatus]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[If(System.Text.RegularExpressions.Regex.IsMatch(strExtractedText, "Status\s+(.+?)(?:\s+Change status|$)"), System.Text.RegularExpressions.Regex.Match(strExtractedText, "Status\s+(.+?)(?:\s+Change status|$)").Groups(1).Value.Trim(), "")]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[System.Text.RegularExpressions.Regex.Match(
+    strExtractedText,
+    "(?&lt;=Status\s)([^:\r\n]+)"
+).Value.Trim]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Sequence DisplayName="Normalise Dogs Names" sap:VirtualizedContainerService.HintSize="450.2857142857143,50.285714285714285" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                              <Sequence DisplayName="Normalise Dogs Names" sap:VirtualizedContainerService.HintSize="468.57142857142856,432" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -684,7 +796,13 @@
                                 </Assign>
                               </Sequence>
                             </Sequence>
-                            <If Condition="[CBool(g_Config(&quot;PausePoint4&quot;))]" sap:VirtualizedContainerService.HintSize="484.57142857142856,1088" sap2010:WorkflowViewState.IdRef="If_2">
+                            <If Condition="[CBool(g_Config(&quot;PausePoint4&quot;))]" sap:VirtualizedContainerService.HintSize="502.85714285714283,50.285714285714285" sap2010:WorkflowViewState.IdRef="If_2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
                                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,831.4285714285714" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -735,7 +853,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <FlowDecision.True>
-                        <FlowStep x:Name="__ReferenceID19">
+                        <FlowStep x:Name="__ReferenceID19" sap2010:WorkflowViewState.IdRef="FlowStep_1">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">475,555</av:Point>
@@ -748,13 +866,13 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index(1)" sap:VirtualizedContainerService.HintSize="450.2857142857143,681.1428571428571" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V2" WindowResize="Maximize">
+                            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index(1)" sap:VirtualizedContainerService.HintSize="502.85714285714283,798.2857142857143" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V2" WindowResize="Maximize">
                               <uix:NApplicationCard.Body>
                                 <ActivityAction x:TypeArguments="x:Object">
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                   </ActivityAction.Argument>
-                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,438.2857142857143" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468.57142857142856,555.4285714285714" sap2010:WorkflowViewState.IdRef="Sequence_62">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:String" Default="999990" Name="strIndexNumber" />
                                       <Variable x:TypeArguments="x:String" Name="strMatchReturned" />
@@ -764,12 +882,12 @@
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Back'" sap:VirtualizedContainerService.HintSize="381.7142857142857,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Back'" sap:VirtualizedContainerService.HintSize="434.2857142857143,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
                                       <uix:NClick.Target>
                                         <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/view/dog-details/ED123456" CVScreenId="638e66fd-ea44-4fe7-b195-7d66eb8daaf0" CvElementArea="1036, 485, 30, 35" CvTextArea="1067, 488, 66, 26" CvTextArgument="Back" CvType="ArrowButton" DesignTimeRectangle="1045, 484, 87, 35" DesignTimeScaleFactor="1.75" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='back' tag='A' type='' class='govuk-back-link' aaname='Back' check:innerText='Back' /&gt;" Guid="912fb725-0d7a-4817-b341-152d1ad30b4f" InformativeScreenshot="4ab7db2cf92dc1d2d8c67a55c50f6e35.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dog ED* - Dangerous Dogs Index' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
                                       </uix:NClick.Target>
                                     </uix:NClick>
-                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Home'" sap:VirtualizedContainerService.HintSize="381.7142857142857,184.57142857142858" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Home'" sap:VirtualizedContainerService.HintSize="434.2857142857143,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
                                       <uix:NClick.Target>
                                         <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/search/basic" CVScreenId="8abe2628-27ab-4cc1-8ade-9f8a8704788e" ContentHash="NdzjZcP6lUWjgwEwdBFvgw" CvTextArea="1042, 488, 78, 26" CvTextArgument="Home" CvType="Text" DesignTimeRectangle="1045, 486, 75, 31" DesignTimeScaleFactor="1.75" ElementType="Text" FuzzySelectorArgument="&lt;webctrl class='govuk-breadcrumbs__link' tag='A' type='' aaname='Home' check:innerText='Home' /&gt;" Guid="14fffe66-ffb5-4796-af34-c901ae23642d" InformativeScreenshot="e2b706310619439122f0ea5bd6acb887.png" Reference="u70FNKxx7EOHPBwkfez66Q/WycL9tFMSUu9Lu8lFW5BJA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Dangerous Dogs Index' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                           <uix:TargetAnchorable.Anchors>
@@ -780,6 +898,14 @@
                                         </uix:TargetAnchorable>
                                       </uix:NClick.Target>
                                     </uix:NClick>
+                                    <Assign DisplayName="Assign OUT_strOutcomeNotes" sap:VirtualizedContainerService.HintSize="434.2857142857143,110.28571428571429" sap2010:WorkflowViewState.IdRef="Assign_325">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[OUT_strOutcomeNotes]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
                                   </Sequence>
                                 </ActivityAction>
                               </uix:NApplicationCard.Body>
@@ -890,25 +1016,72 @@
                                             </uix:NApplicationCard>
                                           </Sequence>
                                           <FlowStep.Next>
-                                            <FlowStep x:Name="__ReferenceID17">
+                                            <FlowStep x:Name="__ReferenceID17" sap2010:WorkflowViewState.IdRef="FlowStep_2">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <av:Point x:Key="ShapeLocation">1105,1085</av:Point>
                                                   <av:Size x:Key="ShapeSize">109.71428571428571,69.71428571428571</av:Size>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Sequence DisplayName="Email User - Dog Dead" sap:VirtualizedContainerService.HintSize="109.71428571428571,69.71428571428571" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                              <Sequence DisplayName="Email User - Dog Dead" sap:VirtualizedContainerService.HintSize="468.57142857142856,1134.857142857143" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                                <Sequence.Variables>
+                                                  <Variable x:TypeArguments="x:Boolean" Name="boolRetry" />
+                                                  <Variable x:TypeArguments="x:String" Name="strEndPoint" />
+                                                  <Variable x:TypeArguments="x:Int32" Name="intRetryCount" />
+                                                  <Variable x:TypeArguments="s:String[]" Name="arrRecipients" />
+                                                  <Variable x:TypeArguments="x:String" Name="strOutput" />
+                                                  <Variable x:TypeArguments="njl:JArray" Name="jarRecipients" />
+                                                  <Variable x:TypeArguments="njl:JObject" Name="jsonPayloadBody" />
+                                                  <Variable x:TypeArguments="x:String" Name="in_strToRecipients" />
+                                                  <Variable x:TypeArguments="x:String" Name="in_strCc" />
+                                                  <Variable x:TypeArguments="x:String" Name="in_strBcc" />
+                                                  <Variable x:TypeArguments="x:String" Name="in_strAttachments" />
+                                                  <Variable x:TypeArguments="x:String" Name="strResponseContent" />
+                                                  <Variable x:TypeArguments="x:Int32" Name="intResponseStatus" />
+                                                  <Variable x:TypeArguments="x:String" Name="strDate" />
+                                                </Sequence.Variables>
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Attempting to Send Email - Dog Dead&quot;]" />
-                                                <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" DisplayName="Download ineligible letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,169.71428571428572" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_7" Path="Withdrawal ineligible letter.docx" StorageBucketName="DD Withdrawal Letters" />
-                                                <uast:FindAndReplace DisplayName="Find and Replace" sap:VirtualizedContainerService.HintSize="450.2857142857143,282.85714285714283" sap2010:WorkflowViewState.IdRef="FindAndReplace_5" MatchCase="False" ReplaceWith="[DateTime.Now.ToString(&quot;dd/MM/yyyy&quot;)]" Source="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" ValueToFind="%[Date]" />
-                                                <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="450.2857142857143,1591.4285714285713" sap2010:WorkflowViewState.IdRef="If_12">
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Attempting to Send Email - Dog Dead&quot;]" />
+                                                <Assign DisplayName="Assign strDate" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_322">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[DateTime.Now.Day.ToString &amp;
+If(DateTime.Now.Day = 1 Or DateTime.Now.Day = 21 Or DateTime.Now.Day = 31,"st",
+If(DateTime.Now.Day = 2 Or DateTime.Now.Day = 22,"nd",
+If(DateTime.Now.Day = 3 Or DateTime.Now.Day = 23,"rd","th"))) &amp;
+" " &amp; DateTime.Now.ToString("MMMM yyyy")]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign DisplayName="Assign strEmailBody - Incorrect Information" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_323">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[strEmailBody]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html&gt;&lt;body&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; " &amp; strDate &amp; "&lt;/p&gt;" &amp;
+"&lt;p&gt;Dear Sir/Madam,&lt;/p&gt;" &amp;
+"&lt;p&gt;We are notifying you that your recent application to withdraw your Certificate of Exemption has &lt;strong&gt;failed&lt;/strong&gt;. This is because one or more pieces of information you provided does not match the information we hold.&lt;/p&gt;" &amp;
+"&lt;p&gt;You can reapply, but the information you provide must match your Certificate of Exemption.&lt;/p&gt;" &amp;
+"&lt;p&gt;Yours sincerely&lt;/p&gt;" &amp;
+"&lt;p&gt;Dogs Index Team&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; &lt;a href=""mailto:dogsindex@defra.gov.uk""&gt;dogsindex@defra.gov.uk&lt;/a&gt;&lt;/p&gt;"]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="434.2857142857143,57.142857142857146" sap2010:WorkflowViewState.IdRef="If_12">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
                                                   <If.Then>
-                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,1328" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,941.7142857142857" sap2010:WorkflowViewState.IdRef="Sequence_56">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -919,14 +1092,21 @@
                                                           <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
                                                         </InvokeMethod.TargetObject>
                                                       </InvokeMethod>
-                                                      <de:Save_Draft in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_9" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
-                                                        <de:Save_Draft.in_strEmailBody>
+                                                      <de:Save_Draft in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_15" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailBody="[strEmailBody]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
+                                                        <de:Save_Draft.in_strAttachments>
                                                           <InArgument x:TypeArguments="x:String">
                                                             <Literal x:TypeArguments="x:String" Value="" />
                                                           </InArgument>
-                                                        </de:Save_Draft.in_strEmailBody>
+                                                        </de:Save_Draft.in_strAttachments>
                                                       </de:Save_Draft>
-                                                      <d:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="Generic PopUp" sap:VirtualizedContainerService.HintSize="381.7142857142857,443.42857142857144" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\PausePoint.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;Pause Point #3&lt;/h1&gt;&quot; +&#xA;&quot;&lt;p&gt;I am about to email to advise that the withdrawn is not possible due to incorrect information Plese check that this is correct and, if you are happy, click Continue.&lt;/p&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{600,500}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_12" />
+                                                      <d:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="Generic PopUp" sap:VirtualizedContainerService.HintSize="381.7142857142857,57.142857142857146" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\PausePoint.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;Pause Point #3&lt;/h1&gt;&quot; +&#xA;&quot;&lt;p&gt;I am about to email to advise that the withdrawn is not possible due to incorrect information Plese check that this is correct and, if you are happy, click Continue.&lt;/p&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{600,500}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_12">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                      </d:Generic_PopUp>
                                                       <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="381.7142857142857,159.42857142857142" sap2010:WorkflowViewState.IdRef="InvokeMethod_24" MethodName="Start">
                                                         <InvokeMethod.TargetObject>
                                                           <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
@@ -944,14 +1124,27 @@
                                                     </Sequence>
                                                   </If.Else>
                                                 </If>
-                                                <de:Send_Email in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="450.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_6" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
-                                                  <de:Send_Email.in_strEmailBody>
+                                                <de:Send_Email in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_11" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailBody="[strEmailBody]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <de:Send_Email.in_strAttachments>
                                                     <InArgument x:TypeArguments="x:String">
                                                       <Literal x:TypeArguments="x:String" Value="" />
                                                     </InArgument>
-                                                  </de:Send_Email.in_strEmailBody>
+                                                  </de:Send_Email.in_strAttachments>
                                                 </de:Send_Email>
-                                                <ui:DeleteFileX DisplayName="Delete withdrawal letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,105.14285714285714" sap2010:WorkflowViewState.IdRef="DeleteFileX_5" Path="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" />
+                                                <Assign DisplayName="Assign OUT_strOutcomeNotes" sap:VirtualizedContainerService.HintSize="434.2857142857143,108" sap2010:WorkflowViewState.IdRef="Assign_329">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[OUT_strOutcomeNotes]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
                                               </Sequence>
                                             </FlowStep>
                                           </FlowStep.Next>
@@ -965,30 +1158,36 @@
                                               <av:Size x:Key="ShapeSize">109.71428571428571,69.71428571428571</av:Size>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Sequence DisplayName="Withdraw from DDI" sap:VirtualizedContainerService.HintSize="553.1428571428571,1836" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                          <Sequence DisplayName="Withdraw from DDI" sap:VirtualizedContainerService.HintSize="109.71428571428571,69.71428571428571" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index" sap:VirtualizedContainerService.HintSize="518.8571428571429,1776" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V2">
+                                            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index" sap:VirtualizedContainerService.HintSize="450.2857142857143,965.7142857142857" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V2">
                                               <uix:NApplicationCard.Body>
                                                 <ActivityAction x:TypeArguments="x:Object">
                                                   <ActivityAction.Argument>
                                                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                                   </ActivityAction.Argument>
-                                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484.57142857142856,1533.142857142857" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,713.7142857142857" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Withdraw dog'" sap:VirtualizedContainerService.HintSize="450.2857142857143,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
+                                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Withdraw dog'" sap:VirtualizedContainerService.HintSize="381.7142857142857,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_33" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
                                                       <uix:NClick.Target>
-                                                        <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/view/dog-details/ED150146" ContentHash="eGcpDRUDYUiwDwKgp3nPaA" DesignTimeRectangle="2541, 1424, 116, 66" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Withdraw dog' parentid='main-content' tag='A' /&gt;" Guid="1ad4bebb-abfb-491b-954b-e20da47fed0f" InformativeScreenshot="9c2339ba44aae685cb6ffbe06271f6fd.png" Reference="u70FNKxx7EOHPBwkfez66Q/QorLdAFoO06BCHo1G78S3g" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dog ED150146 - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                                        <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/view/dog-details/ED123987" DesignTimeRectangle="2541, 1233, 116, 66" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Withdraw dog' parentid='main-content' tag='A' innertext='Withdraw dog' visibleinnertext='Withdraw dog' /&gt;" Guid="b0682e86-4c6b-4680-8683-2636db7839e7" InformativeScreenshot="b8c11132875d006e8e64247565a3490c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dog ED123* - Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                                                       </uix:NClick.Target>
                                                     </uix:NClick>
-                                                    <If Condition="[CBool(g_Config(&quot;PausePoint4&quot;))]" sap:VirtualizedContainerService.HintSize="450.2857142857143,1094.857142857143" sap2010:WorkflowViewState.IdRef="If_3">
+                                                    <If Condition="[CBool(g_Config(&quot;PausePoint4&quot;))]" sap:VirtualizedContainerService.HintSize="381.7142857142857,86.28571428571429" sap2010:WorkflowViewState.IdRef="If_3">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
                                                       <If.Then>
                                                         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,831.4285714285714" sap2010:WorkflowViewState.IdRef="Sequence_34">
                                                           <sap:WorkflowViewStateService.ViewState>
@@ -1019,9 +1218,14 @@
                                                         </Sequence>
                                                       </If.Else>
                                                     </If>
-                                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Withdraw dog(1)'" sap:VirtualizedContainerService.HintSize="450.2857142857143,184.57142857142858" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
+                                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Withdraw dog(1)'" sap:VirtualizedContainerService.HintSize="381.7142857142857,191.42857142857142" sap2010:WorkflowViewState.IdRef="NClick_34" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
                                                       <uix:NClick.Target>
-                                                        <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/withdraw/ED100616" CVScreenId="3d2657ac-f1bd-4cfa-949f-1411737c1f94" ContentHash="EJ7u2g1i80uUVd_NqZPosw" CvElementArea="1040, 1151, 251, 74" CvTextArea="1060, 1170, 210, 40" CvTextArgument="Withdraw dog" CvType="Button" DesignTimeRectangle="1045, 1154, 244, 65" DesignTimeScaleFactor="1.75" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" Guid="c42547ff-cf2a-47d8-84f4-5eb51f57691a" InformativeScreenshot="b38e616871d21192cd4315f08d95d7e5.png" Reference="u70FNKxx7EOHPBwkfez66Q/cVPXyfHANU-MwK8uzlr8qA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Withdraw dog and send confirmation - Dangerous Dogs Index' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
+                                                        <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/withdraw/ED100616" CVScreenId="3d2657ac-f1bd-4cfa-949f-1411737c1f94" CvElementArea="1040, 1151, 251, 74" CvTextArea="1060, 1170, 210, 40" CvTextArgument="Withdraw dog" CvType="Button" DesignTimeRectangle="1045, 1154, 244, 65" DesignTimeScaleFactor="1.75" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" Guid="c42547ff-cf2a-47d8-84f4-5eb51f57691a" InformativeScreenshot="b38e616871d21192cd4315f08d95d7e5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Withdraw dog and send confirmation - Dangerous Dogs Index' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive" />
+                                                      </uix:NClick.Target>
+                                                    </uix:NClick>
+                                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Home'" sap:VirtualizedContainerService.HintSize="381.7142857142857,184.57142857142858" sap2010:WorkflowViewState.IdRef="NClick_26" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V4">
+                                                      <uix:NClick.Target>
+                                                        <uix:TargetAnchorable BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud/cdo/edit/withdrawal-confirmation/ED999993/email" CVScreenId="0138c3ad-1c4e-41ca-8df3-e29e4861bc31" ContentHash="JDWEQWgsT02r_lqR0KT8AQ" CvTextArea="1042, 488, 78, 26" CvTextArgument="Home" CvType="Text" DesignTimeRectangle="1042, 487, 78, 28" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl class='govuk-breadcrumbs__link' tag='A' aaname='Home' innertext='Home' /&gt;" Guid="c1f41e6e-33a8-4ea6-9c10-25a181b11abb" InformativeScreenshot="fad19add628e40022ab14c1168463e90.png" Reference="u70FNKxx7EOHPBwkfez66Q/m8NxUYbDwEeNDVsyQSvnTw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Withdraw dog and send confirmation - Dangerous Dogs Index' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
                                                       </uix:NClick.Target>
                                                     </uix:NClick>
                                                   </Sequence>
@@ -1031,6 +1235,14 @@
                                                 <uix:TargetApp Area="-12, -12, 3864, 2340" BrowserType="Edge" ContentHash="6wuy-I5_HE6w4W-ptO0FWA" IconBase64="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" InformativeScreenshot="47794b1e6bb16eac6a51c34f3df4f6c9.jpg" Reference="u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg" Selector="&lt;html app='msedge.exe' title='*Dangerous Dogs Index' /&gt;" Title="Dangerous Dogs Index" Url="https://aphw-ddi-portal-prd.azure.defra.cloud/" Version="V1" />
                                               </uix:NApplicationCard.TargetApp>
                                             </uix:NApplicationCard>
+                                            <Assign DisplayName="Assign OUT_strOutcomeNotes" sap:VirtualizedContainerService.HintSize="450.2857142857143,108" sap2010:WorkflowViewState.IdRef="Assign_330">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[OUT_strOutcomeNotes]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">Withdrawn</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
                                           </Sequence>
                                         </FlowStep>
                                       </FlowDecision.False>
@@ -1051,7 +1263,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index(1)" sap:VirtualizedContainerService.HintSize="450.2857142857143,721.1428571428571" sap2010:WorkflowViewState.IdRef="NApplicationCard_14" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V2" WindowResize="Maximize">
+                                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Edge Dangerous Dogs Index(1)" sap:VirtualizedContainerService.HintSize="450.2857142857143,681.1428571428571" sap2010:WorkflowViewState.IdRef="NApplicationCard_14" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="c9374873-b04e-4ec1-9a35-bd17c60f5b15" Version="V2" WindowResize="Maximize">
                                           <uix:NApplicationCard.Body>
                                             <ActivityAction x:TypeArguments="x:Object">
                                               <ActivityAction.Argument>
@@ -1092,7 +1304,7 @@
                                         </uix:NApplicationCard>
                                       </Sequence>
                                       <FlowStep.Next>
-                                        <FlowStep x:Name="__ReferenceID15">
+                                        <FlowStep x:Name="__ReferenceID15" sap2010:WorkflowViewState.IdRef="FlowStep_3">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <av:Point x:Key="ShapeLocation">945,985</av:Point>
@@ -1100,15 +1312,62 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <Sequence DisplayName="Email User - Dog name doesnt match" sap:VirtualizedContainerService.HintSize="109.71428571428571,69.71428571428571" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                            <Sequence.Variables>
+                                              <Variable x:TypeArguments="x:Boolean" Name="boolRetry" />
+                                              <Variable x:TypeArguments="x:String" Name="strEndPoint" />
+                                              <Variable x:TypeArguments="x:Int32" Name="intRetryCount" />
+                                              <Variable x:TypeArguments="s:String[]" Name="arrRecipients" />
+                                              <Variable x:TypeArguments="x:String" Name="strOutput" />
+                                              <Variable x:TypeArguments="njl:JArray" Name="jarRecipients" />
+                                              <Variable x:TypeArguments="njl:JObject" Name="jsonPayloadBody" />
+                                              <Variable x:TypeArguments="x:String" Name="in_strToRecipients" />
+                                              <Variable x:TypeArguments="x:String" Name="in_strCc" />
+                                              <Variable x:TypeArguments="x:String" Name="in_strBcc" />
+                                              <Variable x:TypeArguments="x:String" Name="in_strAttachments" />
+                                              <Variable x:TypeArguments="x:String" Name="strResponseContent" />
+                                              <Variable x:TypeArguments="x:Int32" Name="intResponseStatus" />
+                                              <Variable x:TypeArguments="x:String" Name="strDate" />
+                                            </Sequence.Variables>
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Attempting to Send Email - Dog name doesnt match&quot;]" />
-                                            <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" DisplayName="Download failure letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,169.71428571428572" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_4" Path="Withdrawal failure letter.docx" StorageBucketName="DD Withdrawal Letters" />
-                                            <uast:FindAndReplace DisplayName="Find and Replace" sap:VirtualizedContainerService.HintSize="450.2857142857143,282.85714285714283" sap2010:WorkflowViewState.IdRef="FindAndReplace_3" MatchCase="False" ReplaceWith="[DateTime.Now.ToString(&quot;dd/MM/yyyy&quot;)]" Source="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" ValueToFind="%[Date]" />
-                                            <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="450.2857142857143,1591.4285714285713" sap2010:WorkflowViewState.IdRef="If_10">
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Attempting to Send Email - Dog name doesnt match&quot;]" />
+                                            <Assign DisplayName="Assign strDate" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_318">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[DateTime.Now.Day.ToString &amp;
+If(DateTime.Now.Day = 1 Or DateTime.Now.Day = 21 Or DateTime.Now.Day = 31,"st",
+If(DateTime.Now.Day = 2 Or DateTime.Now.Day = 22,"nd",
+If(DateTime.Now.Day = 3 Or DateTime.Now.Day = 23,"rd","th"))) &amp;
+" " &amp; DateTime.Now.ToString("MMMM yyyy")]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <Assign DisplayName="Assign strEmailBody - Incorrect Information" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_319">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[strEmailBody]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html&gt;&lt;body&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; " &amp; strDate &amp; "&lt;/p&gt;" &amp;
+"&lt;p&gt;Dear Sir/Madam,&lt;/p&gt;" &amp;
+"&lt;p&gt;We are notifying you that your recent application to withdraw your Certificate of Exemption has &lt;strong&gt;failed&lt;/strong&gt;. This is because one or more pieces of information you provided does not match the information we hold.&lt;/p&gt;" &amp;
+"&lt;p&gt;You can reapply, but the information you provide must match your Certificate of Exemption.&lt;/p&gt;" &amp;
+"&lt;p&gt;Yours sincerely&lt;br/&gt;Dogs Index Team&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; &lt;a href=""mailto:dogsindex@defra.gov.uk""&gt;dogsindex@defra.gov.uk&lt;/a&gt;&lt;/p&gt;" &amp;
+"&lt;/body&gt;&lt;/html&gt;"]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="434.2857142857143,57.142857142857146" sap2010:WorkflowViewState.IdRef="If_10">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
                                               <If.Then>
                                                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,1328" sap2010:WorkflowViewState.IdRef="Sequence_50">
                                                   <sap:WorkflowViewStateService.ViewState>
@@ -1121,12 +1380,22 @@
                                                       <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
                                                     </InvokeMethod.TargetObject>
                                                   </InvokeMethod>
-                                                  <de:Save_Draft in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_7" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
-                                                    <de:Save_Draft.in_strEmailBody>
+                                                  <de:Save_Draft DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_13" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailBody="[strEmailBody]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
+                                                    <de:Save_Draft.in_strAttachments>
                                                       <InArgument x:TypeArguments="x:String">
                                                         <Literal x:TypeArguments="x:String" Value="" />
                                                       </InArgument>
-                                                    </de:Save_Draft.in_strEmailBody>
+                                                    </de:Save_Draft.in_strAttachments>
+                                                    <de:Save_Draft.in_strBcc>
+                                                      <InArgument x:TypeArguments="x:String">
+                                                        <Literal x:TypeArguments="x:String" Value="" />
+                                                      </InArgument>
+                                                    </de:Save_Draft.in_strBcc>
+                                                    <de:Save_Draft.in_strCc>
+                                                      <InArgument x:TypeArguments="x:String">
+                                                        <Literal x:TypeArguments="x:String" Value="" />
+                                                      </InArgument>
+                                                    </de:Save_Draft.in_strCc>
                                                   </de:Save_Draft>
                                                   <d:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="Generic PopUp" sap:VirtualizedContainerService.HintSize="381.7142857142857,443.42857142857144" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\PausePoint.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;Pause Point #3&lt;/h1&gt;&quot; +&#xA;&quot;&lt;p&gt;I am about to email to advise that the withdrawn is not possible due to incorrect information Plese check that this is correct and, if you are happy, click Continue.&lt;/p&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{600,500}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_10" />
                                                   <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="381.7142857142857,159.42857142857142" sap2010:WorkflowViewState.IdRef="InvokeMethod_20" MethodName="Start">
@@ -1146,14 +1415,31 @@
                                                 </Sequence>
                                               </If.Else>
                                             </If>
-                                            <de:Send_Email in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="450.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_4" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
-                                              <de:Send_Email.in_strEmailBody>
+                                            <de:Send_Email DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_9" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailBody="[strEmailBody]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
+                                              <de:Send_Email.in_strAttachments>
                                                 <InArgument x:TypeArguments="x:String">
                                                   <Literal x:TypeArguments="x:String" Value="" />
                                                 </InArgument>
-                                              </de:Send_Email.in_strEmailBody>
+                                              </de:Send_Email.in_strAttachments>
+                                              <de:Send_Email.in_strBcc>
+                                                <InArgument x:TypeArguments="x:String">
+                                                  <Literal x:TypeArguments="x:String" Value="" />
+                                                </InArgument>
+                                              </de:Send_Email.in_strBcc>
+                                              <de:Send_Email.in_strCc>
+                                                <InArgument x:TypeArguments="x:String">
+                                                  <Literal x:TypeArguments="x:String" Value="" />
+                                                </InArgument>
+                                              </de:Send_Email.in_strCc>
                                             </de:Send_Email>
-                                            <ui:DeleteFileX DisplayName="Delete withdrawal letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,105.14285714285714" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" />
+                                            <Assign DisplayName="Assign OUT_strOutcomeNotes" sap:VirtualizedContainerService.HintSize="434.2857142857143,108" sap2010:WorkflowViewState.IdRef="Assign_328">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[OUT_strOutcomeNotes]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
                                           </Sequence>
                                         </FlowStep>
                                       </FlowStep.Next>
@@ -1217,7 +1503,7 @@
                                     </uix:NApplicationCard>
                                   </Sequence>
                                   <FlowStep.Next>
-                                    <FlowStep x:Name="__ReferenceID14">
+                                    <FlowStep x:Name="__ReferenceID14" sap2010:WorkflowViewState.IdRef="FlowStep_4">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <av:Point x:Key="ShapeLocation">785,885</av:Point>
@@ -1225,15 +1511,62 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                       <Sequence DisplayName="Email User - Only Named owner can apply" sap:VirtualizedContainerService.HintSize="109.71428571428571,69.71428571428571" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                        <Sequence.Variables>
+                                          <Variable x:TypeArguments="x:Boolean" Name="boolRetry" />
+                                          <Variable x:TypeArguments="x:String" Name="strEndPoint" />
+                                          <Variable x:TypeArguments="x:Int32" Name="intRetryCount" />
+                                          <Variable x:TypeArguments="s:String[]" Name="arrRecipients" />
+                                          <Variable x:TypeArguments="x:String" Name="strOutput" />
+                                          <Variable x:TypeArguments="njl:JArray" Name="jarRecipients" />
+                                          <Variable x:TypeArguments="njl:JObject" Name="jsonPayloadBody" />
+                                          <Variable x:TypeArguments="x:String" Name="in_strToRecipients" />
+                                          <Variable x:TypeArguments="x:String" Name="in_strCc" />
+                                          <Variable x:TypeArguments="x:String" Name="in_strBcc" />
+                                          <Variable x:TypeArguments="x:String" Name="in_strAttachments" />
+                                          <Variable x:TypeArguments="x:String" Name="strResponseContent" />
+                                          <Variable x:TypeArguments="x:Int32" Name="intResponseStatus" />
+                                          <Variable x:TypeArguments="x:String" Name="strDate" />
+                                        </Sequence.Variables>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Attempting to Send Email - Only Named owner can apply&quot;]" />
-                                        <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" DisplayName="Download failure letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,169.71428571428572" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_3" Path="Withdrawal failure letter.docx" StorageBucketName="DD Withdrawal Letters" />
-                                        <uast:FindAndReplace DisplayName="Find and Replace" sap:VirtualizedContainerService.HintSize="450.2857142857143,282.85714285714283" sap2010:WorkflowViewState.IdRef="FindAndReplace_2" MatchCase="False" ReplaceWith="[DateTime.Now.ToString(&quot;dd/MM/yyyy&quot;)]" Source="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" ValueToFind="%[Date]" />
-                                        <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="450.2857142857143,1591.4285714285713" sap2010:WorkflowViewState.IdRef="If_9">
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Attempting to Send Email - Only Named owner can apply&quot;]" />
+                                        <Assign DisplayName="Assign strDate" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_316">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[DateTime.Now.Day.ToString &amp;
+If(DateTime.Now.Day = 1 Or DateTime.Now.Day = 21 Or DateTime.Now.Day = 31,"st",
+If(DateTime.Now.Day = 2 Or DateTime.Now.Day = 22,"nd",
+If(DateTime.Now.Day = 3 Or DateTime.Now.Day = 23,"rd","th"))) &amp;
+" " &amp; DateTime.Now.ToString("MMMM yyyy")]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign DisplayName="Assign strEmailBody - Incorrect Information" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_317">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[strEmailBody]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html&gt;&lt;body&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; " &amp; strDate &amp; "&lt;/p&gt;" &amp;
+"&lt;p&gt;Dear Sir/Madam,&lt;/p&gt;" &amp;
+"&lt;p&gt;We are notifying you that your recent application to withdraw your Certificate of Exemption has &lt;strong&gt;failed&lt;/strong&gt;. This is because one or more pieces of information you provided does not match the information we hold.&lt;/p&gt;" &amp;
+"&lt;p&gt;You can reapply, but the information you provide must match your Certificate of Exemption.&lt;/p&gt;" &amp;
+"&lt;p&gt;Yours sincerely&lt;br/&gt;Dogs Index Team&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; &lt;a href=""mailto:dogsindex@defra.gov.uk""&gt;dogsindex@defra.gov.uk&lt;/a&gt;&lt;/p&gt;" &amp;
+"&lt;/body&gt;&lt;/html&gt;"]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="434.2857142857143,57.142857142857146" sap2010:WorkflowViewState.IdRef="If_9">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
                                           <If.Then>
                                             <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,1328" sap2010:WorkflowViewState.IdRef="Sequence_47">
                                               <sap:WorkflowViewStateService.ViewState>
@@ -1246,12 +1579,22 @@
                                                   <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
                                                 </InvokeMethod.TargetObject>
                                               </InvokeMethod>
-                                              <de:Save_Draft in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_6" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
-                                                <de:Save_Draft.in_strEmailBody>
+                                              <de:Save_Draft DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_12" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailBody="[strEmailBody]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
+                                                <de:Save_Draft.in_strAttachments>
                                                   <InArgument x:TypeArguments="x:String">
                                                     <Literal x:TypeArguments="x:String" Value="" />
                                                   </InArgument>
-                                                </de:Save_Draft.in_strEmailBody>
+                                                </de:Save_Draft.in_strAttachments>
+                                                <de:Save_Draft.in_strBcc>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <Literal x:TypeArguments="x:String" Value="" />
+                                                  </InArgument>
+                                                </de:Save_Draft.in_strBcc>
+                                                <de:Save_Draft.in_strCc>
+                                                  <InArgument x:TypeArguments="x:String">
+                                                    <Literal x:TypeArguments="x:String" Value="" />
+                                                  </InArgument>
+                                                </de:Save_Draft.in_strCc>
                                               </de:Save_Draft>
                                               <d:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="Generic PopUp" sap:VirtualizedContainerService.HintSize="381.7142857142857,443.42857142857144" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\PausePoint.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;Pause Point #3&lt;/h1&gt;&quot; +&#xA;&quot;&lt;p&gt;I am about to email to advise that the withdrawn is not possible due to incorrect information Plese check that this is correct and, if you are happy, click Continue.&lt;/p&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{600,500}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_9" />
                                               <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="381.7142857142857,159.42857142857142" sap2010:WorkflowViewState.IdRef="InvokeMethod_18" MethodName="Start">
@@ -1271,14 +1614,31 @@
                                             </Sequence>
                                           </If.Else>
                                         </If>
-                                        <de:Send_Email in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="450.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_3" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
-                                          <de:Send_Email.in_strEmailBody>
+                                        <de:Send_Email DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_8" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailBody="[strEmailBody]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
+                                          <de:Send_Email.in_strAttachments>
                                             <InArgument x:TypeArguments="x:String">
                                               <Literal x:TypeArguments="x:String" Value="" />
                                             </InArgument>
-                                          </de:Send_Email.in_strEmailBody>
+                                          </de:Send_Email.in_strAttachments>
+                                          <de:Send_Email.in_strBcc>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <Literal x:TypeArguments="x:String" Value="" />
+                                            </InArgument>
+                                          </de:Send_Email.in_strBcc>
+                                          <de:Send_Email.in_strCc>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <Literal x:TypeArguments="x:String" Value="" />
+                                            </InArgument>
+                                          </de:Send_Email.in_strCc>
                                         </de:Send_Email>
-                                        <ui:DeleteFileX DisplayName="Delete withdrawal letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,105.14285714285714" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal failure letter.docx&quot;)]" />
+                                        <Assign DisplayName="Assign OUT_strOutcomeNotes" sap:VirtualizedContainerService.HintSize="434.2857142857143,108" sap2010:WorkflowViewState.IdRef="Assign_327">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[OUT_strOutcomeNotes]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
                                       </Sequence>
                                     </FlowStep>
                                   </FlowStep.Next>
@@ -1342,7 +1702,7 @@
                                 </uix:NApplicationCard>
                               </Sequence>
                               <FlowStep.Next>
-                                <FlowStep x:Name="__ReferenceID16">
+                                <FlowStep x:Name="__ReferenceID16" sap2010:WorkflowViewState.IdRef="FlowStep_5">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">625,785</av:Point>
@@ -1350,15 +1710,62 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <Sequence DisplayName="Email User - Not Eligible for withdrawal" sap:VirtualizedContainerService.HintSize="109.71428571428571,69.71428571428571" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="x:Boolean" Name="boolRetry" />
+                                      <Variable x:TypeArguments="x:String" Name="strEndPoint" />
+                                      <Variable x:TypeArguments="x:Int32" Name="intRetryCount" />
+                                      <Variable x:TypeArguments="s:String[]" Name="arrRecipients" />
+                                      <Variable x:TypeArguments="x:String" Name="strOutput" />
+                                      <Variable x:TypeArguments="njl:JArray" Name="jarRecipients" />
+                                      <Variable x:TypeArguments="njl:JObject" Name="jsonPayloadBody" />
+                                      <Variable x:TypeArguments="x:String" Name="in_strToRecipients" />
+                                      <Variable x:TypeArguments="x:String" Name="in_strCc" />
+                                      <Variable x:TypeArguments="x:String" Name="in_strBcc" />
+                                      <Variable x:TypeArguments="x:String" Name="in_strAttachments" />
+                                      <Variable x:TypeArguments="x:Int32" Name="intResponseStatus" />
+                                      <Variable x:TypeArguments="x:String" Name="strResponseContent" />
+                                      <Variable x:TypeArguments="x:String" Name="strDate" />
+                                    </Sequence.Variables>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Attempting to Send Email - Not Eligible for withdrawal&quot;]" />
-                                    <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" DisplayName="Download ineligible letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,169.71428571428572" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_5" Path="Withdrawal ineligible letter.docx" StorageBucketName="DD Withdrawal Letters" />
-                                    <uast:FindAndReplace DisplayName="Find and Replace" sap:VirtualizedContainerService.HintSize="450.2857142857143,282.85714285714283" sap2010:WorkflowViewState.IdRef="FindAndReplace_4" MatchCase="False" ReplaceWith="[DateTime.Now.ToString(&quot;dd/MM/yyyy&quot;)]" Source="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" ValueToFind="%[Date]" />
-                                    <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="450.2857142857143,1591.4285714285713" sap2010:WorkflowViewState.IdRef="If_11">
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.2857142857143,177.71428571428572" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Attempting to Send Email - Not Eligible for withdrawal&quot;]" />
+                                    <Assign DisplayName="Assign strDate" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_320">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[DateTime.Now.Day.ToString &amp;
+If(DateTime.Now.Day = 1 Or DateTime.Now.Day = 21 Or DateTime.Now.Day = 31,"st",
+If(DateTime.Now.Day = 2 Or DateTime.Now.Day = 22,"nd",
+If(DateTime.Now.Day = 3 Or DateTime.Now.Day = 23,"rd","th"))) &amp;
+" " &amp; DateTime.Now.ToString("MMMM yyyy")]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="Assign strEmailBody - Incorrect Information" sap:VirtualizedContainerService.HintSize="434.2857142857143,117.71428571428571" sap2010:WorkflowViewState.IdRef="Assign_321">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[strEmailBody]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html&gt;&lt;body&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; " &amp; strDate &amp; "&lt;/p&gt;" &amp;
+"&lt;p&gt;Dear Sir/Madam,&lt;/p&gt;" &amp;
+"&lt;p&gt;We are notifying you that your recent application to withdraw your Certificate of Exemption has &lt;strong&gt;failed&lt;/strong&gt;. This Is because your Certificate Of Exemption was issued via a court Order And Not through the voluntary exemption scheme.&lt;/p&gt;" &amp;
+"&lt;p&gt;You can reapply, but the information you provide must match your Certificate of Exemption.&lt;/p&gt;" &amp;
+"&lt;p&gt;Yours sincerely&lt;/p&gt;" &amp;
+"&lt;p&gt;Dogs Index Team&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; &lt;a href=""mailto:dogsindex@defra.gov.uk""&gt;dogsindex@defra.gov.uk&lt;/a&gt;&lt;/p&gt;"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <If Condition="[CBool(g_Config(&quot;PausePoint3&quot;))]" sap:VirtualizedContainerService.HintSize="434.2857142857143,57.142857142857146" sap2010:WorkflowViewState.IdRef="If_11">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
                                       <If.Then>
                                         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,1328" sap2010:WorkflowViewState.IdRef="Sequence_53">
                                           <sap:WorkflowViewStateService.ViewState>
@@ -1371,7 +1778,17 @@
                                               <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
                                             </InvokeMethod.TargetObject>
                                           </InvokeMethod>
-                                          <de:Save_Draft in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_8" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
+                                          <de:Save_Draft DisplayName="Save Draft" sap:VirtualizedContainerService.HintSize="381.7142857142857,496.57142857142856" sap2010:WorkflowViewState.IdRef="Save_Draft_14" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal" in_strToRecipients="[strEmailAddress]">
+                                            <de:Save_Draft.in_strBcc>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <Literal x:TypeArguments="x:String" Value="" />
+                                              </InArgument>
+                                            </de:Save_Draft.in_strBcc>
+                                            <de:Save_Draft.in_strCc>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <Literal x:TypeArguments="x:String" Value="" />
+                                              </InArgument>
+                                            </de:Save_Draft.in_strCc>
                                             <de:Save_Draft.in_strEmailBody>
                                               <InArgument x:TypeArguments="x:String">
                                                 <Literal x:TypeArguments="x:String" Value="" />
@@ -1396,14 +1813,27 @@
                                         </Sequence>
                                       </If.Else>
                                     </If>
-                                    <de:Send_Email in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="450.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_5" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
+                                    <de:Send_Email in_strBcc="{x:Null}" in_strCc="{x:Null}" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434.2857142857143,496.57142857142856" sap2010:WorkflowViewState.IdRef="Send_Email_10" in_strAttachments="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strSubject="Dangerous Dogs Withdrawal " in_strToRecipients="[strEmailAddress]">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
                                       <de:Send_Email.in_strEmailBody>
                                         <InArgument x:TypeArguments="x:String">
                                           <Literal x:TypeArguments="x:String" Value="" />
                                         </InArgument>
                                       </de:Send_Email.in_strEmailBody>
                                     </de:Send_Email>
-                                    <ui:DeleteFileX DisplayName="Delete withdrawal letter" sap:VirtualizedContainerService.HintSize="450.2857142857143,105.14285714285714" sap2010:WorkflowViewState.IdRef="DeleteFileX_4" Path="[Path.Combine(g_Config(&quot;LettersFilepath&quot;).ToString, &quot;Withdrawal ineligible letter.docx&quot;)]" />
+                                    <Assign DisplayName="Assign OUT_strOutcomeNotes" sap:VirtualizedContainerService.HintSize="434.2857142857143,108" sap2010:WorkflowViewState.IdRef="Assign_326">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[OUT_strOutcomeNotes]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
                                   </Sequence>
                                 </FlowStep>
                               </FlowStep.Next>
