@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Pick an account",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "cyE9LEju30GiP0C2vda8Og",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/cyE9LEju30GiP0C2vda8Og",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg",
+  "Created": "2026-10-05T07:04:51.5269591Z",
+  "Updated": "2026-10-05T07:04:51.5269591Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

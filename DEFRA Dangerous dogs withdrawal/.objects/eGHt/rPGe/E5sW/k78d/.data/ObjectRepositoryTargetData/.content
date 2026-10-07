@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="A3xLmJAtkEK7YKHFzrh_kg" Reference="u70FNKxx7EOHPBwkfez66Q/k78d5rvskU23VYxzJCGlDw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="aphw-ddi-portal-prd.azure.defra.cloud" CVScreenId="cad20cbc-3f0f-41b0-9662-582695cc831d" DesignTimeRectangle="1081, 759, 259, 37" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='main-content' tag='A' aaname='Search dog index' innertext='Search dog index' /&gt;" Guid="a43464e2-fd36-4b84-97b5-dabc70c908fe" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dangerous Dogs Index' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="62bcf677144a2e5f0815978de0863db3.png" xmlns="">0ONxrS-NHe0a88Cp7jqZsQw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

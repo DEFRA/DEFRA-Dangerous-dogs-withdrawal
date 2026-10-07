@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Search dog index(2)",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "k78d5rvskU23VYxzJCGlDw",
+  "Reference": "u70FNKxx7EOHPBwkfez66Q/k78d5rvskU23VYxzJCGlDw",
+  "ParentRef": "u70FNKxx7EOHPBwkfez66Q/E5sW-MQid0WOaFz0KSxGhg",
+  "Created": "2026-10-05T13:09:42.2021663Z",
+  "Updated": "2026-10-05T13:09:42.2021663Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.16.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

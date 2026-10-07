@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="vNwyrYg6X02HbF92JYxuAQ" Reference="u70FNKxx7EOHPBwkfez66Q/IGZ7jyhwgUKbvGvoAdMKiw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="login.microsoftonline.com/bce3d7d1-cbbd-481e-8c81-eaecfc38b551/reprocess" CVScreenId="9cc0cb18-1eaa-4b79-9f39-d414c6a1fd9d" DesignTimeRectangle="2017, 1399, 189, 56" DesignTimeScaleFactor="1.75" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Sign in' type='submit' /&gt;" Guid="9121a819-e246-45c4-82b1-6bb920d7ace7" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sign in to your account' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="ac42a09e18937089d23e197c01da1d4e.png" xmlns="">0XmEdA1PXjUCVnjjw4wbaAg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

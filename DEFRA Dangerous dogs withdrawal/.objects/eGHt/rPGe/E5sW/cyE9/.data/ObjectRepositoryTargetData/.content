@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="kMVp4a5gu0m1k2TfNnDOvw" Reference="u70FNKxx7EOHPBwkfez66Q/cyE9LEju30GiP0C2vda8Og" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="login.microsoftonline.com/bce3d7d1-cbbd-481e-8c81-eaecfc38b551/oauth2/v2.0/authorize" CVScreenId="53fa8fce-529c-441d-b492-d2cc9cf34574" DesignTimeRectangle="1590, 975, 616, 49" DesignTimeScaleFactor="1.75" ElementType="Text" FullSelectorArgument="&lt;webctrl aria-role='heading' tag='DIV' aaname='Pick an account' innertext='Pick an account' /&gt;" Guid="72e06994-7baf-4a4e-97a5-38918ef19022" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sign in to your account' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="ca437c8e7e1aa9d236e19fa221451bd1.png" xmlns="">0SjKKxLBBq0a3w2prgcbHhg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
